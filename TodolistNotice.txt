@@ -1,0 +1,45 @@
+Documentation todolist : 
+
+    On peut proposer plusieurs méthodes à la todolist :
+    
+        create : Créé une nouvelle tache.
+            racine : create --title "titre"
+            possibilite de préciser description et/ou priorité en ajoutant : 
+                    --priority "priorité" et/ou --description "description"
+                    
+        modify : Modifie une tache existante d'id "id".
+            racine : modify --id "id"
+            on peut ajouter quatre sous méthodes :
+                description : description --"description"
+                    remplace l'ancienne description par la nouvelle.
+                title : title --"titre"
+                    remplace l'ancien titre par le nouveau.
+                close : close --"statut"
+                    avec "status" = "Terminee" : le pourcentage de la tache passe à 100.
+                    ou avec "status" = "Fermee" : le pourcentage ne change pas. 
+                priority : priority --"priorité"
+                    on remplace l'ancien status par le status "piorité"
+                commentary : commentary --"commentaire"
+                    on ajoute "commentaire" à la liste des commentaires.
+                undertask : undertask --title "titre"
+                    on créé une nouvelle sous tache dans la tache concernée. 
+                    possibilite de préciser description et/ou priorité en ajoutant : 
+                        --priority "priorité" et/ou --description "description"
+
+        list :  Liste une partie ou la totalité des taches.
+            racine : list
+            on peut ajouter des critères de sélection :
+                la priorité : --priority "priorité"
+                le statut : --status "statut"
+                le pourcentage : --percent "(inf ou sup ou equ)pourcentage"
+                    le pourcentage est sous la forme "100", pas "100%" par exemple.
+                    on peut chercher "infx" ou "supx" ou "equx" (les inégalités ne seront pas considérées comme strictes).
+                la date de création : --dcreation "date"
+                    avec "date" sous la forme, par exemple pour le samedi 28 mars 2020 : "Sat Mar 28 2020"
+            on peut ne rien ajouter et lister toutes les taches. 
+    
+    Remarque sur les pourcentages : ils ne sont pas modifiables directement, et sont calculés à partir des
+    pourcentages des sous taches, les sous taches étant considérées comme représentant des portions équivalentes
+    de la tache totale. 
+    Remarque sur list : list ne liste que les taches, et ne considère pas les sous taches comme des taches. list listera 
+    donc les taches avec leurs sous taches, mais les critères de sélection ne s'appliquent pas aux sous taches. 
