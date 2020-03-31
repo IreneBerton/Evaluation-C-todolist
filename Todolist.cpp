@@ -18,6 +18,7 @@
      //pourcentages des sous taches, Changepriority, Changedescr, Changetitle, Changesst dont le nom est explicite,
      //ainsi que Close qui peut donner le status Fermee ou Terminee à une tache, le dernier cas fixant le 
      //pourcentage de la tache à 100, et enfin Show, qui affiche la tache, et ses sous taches. 
+     //On a aussi toutes les méthodes pour accéder aux attributs private. 
      private :
         int id;
         std::string title;
@@ -164,8 +165,8 @@
  };
 
 Task liretache(std::ifstream& input){
-    //liretache prend en attribut une ligne correspondant à une tache, et en tire
-    //les différents attributs de la tache en question. 
+    //liretache prend en attribut un stream d'un fichier contenant une ligne correspondant à une tache, 
+    //et en tire les différents attributs de la tache en question et retourne la tache correspondante. 
     std::string truc;
     int i = 0;
     std::getline(input, truc, '<');
